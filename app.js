@@ -7,10 +7,22 @@ const app = express();
 
 //anything that have to do with pusher we will put them in seperate file
 const poll = require('./routes/poll');
+/*
+//const dbUrl = process.env.DB_URL || 'mongodb+srv://abhishek123:abhishek123@cluster0.ctegg.mongodb.net/realtimepoll?retryWrites=true&w=majority';
+
+mongoose.connect('mongodb://localhost:27017/yelp-camp', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+
+//logic check for mongoose connection
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "Connection error:"));
+db.once("open", () => {
+    console.log("Database connected");
+});
+*/
+const dbUrl = process.env.DB_URL || 'mongodb+srv://abhishek123:abhishek123@cluster0.ctegg.mongodb.net/realtimepoll?retryWrites=true&w=majority';
 
 
-
-mongoose.connect('mongodb+srv://abhishek123:abhishek123@cluster0.ctegg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(dbUrl, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 
 //logic check for mongoose connection
 const db = mongoose.connection;

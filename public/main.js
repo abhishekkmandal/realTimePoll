@@ -6,7 +6,7 @@ form.addEventListener('submit', (e) => {
     const data = { os: choice };
 
 
-    fetch('/', {
+    fetch('http://localhost:3000/poll', {
         method: 'post',
         body: JSON.stringify(data),
         headers: new Headers({
@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
 
     e.preventDefault();
 });
-fetch("/")
+fetch("http://localhost:3000/poll")
     .then(res => res.json())
     .then(data => {
         let votes = data.votes;
