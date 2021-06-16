@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
 
     e.preventDefault();
 });
-fetch("http://localhost:3000/poll")
+fetch("https://realtimepoll2021.herokuapp.com/")
     .then(res => res.json())
     .then(data => {
         let votes = data.votes;
