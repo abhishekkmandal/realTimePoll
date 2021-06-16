@@ -6,7 +6,7 @@ form.addEventListener('submit', (e) => {
     const data = { os: choice };
 
 
-    fetch('http://localhost:3000/poll', {
+    fetch('https://realtimepoll2021.herokuapp.com/', {
         method: 'post',
         body: JSON.stringify(data),
         headers: new Headers({
