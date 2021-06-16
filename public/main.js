@@ -6,7 +6,7 @@ form.addEventListener('submit', (e) => {
     const data = { os: choice };
 
 
-    fetch('https://realtimepoll2021.herokuapp.com/', {
+    fetch('/', {
         method: 'post',
         body: JSON.stringify(data),
         headers: new Headers({
@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
 
     e.preventDefault();
 });
-fetch("https://realtimepoll2021.herokuapp.com/")
+fetch("/")
     .then(res => res.json())
     .then(data => {
         let votes = data.votes;
