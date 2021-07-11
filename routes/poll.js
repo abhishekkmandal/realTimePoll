@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-const Vote = require('../models/vote');
+const Vote = require('../models/Vote');
 
 const Pusher = require("pusher");
 
@@ -14,8 +14,9 @@ const pusher = new Pusher({
     useTLS: true
 });
 
-router.get('/', (req, res) => {
-    Vote.find().then(votes => res.json({ success: true, votes: votes }));
+router.get('/', async (req, res) => {
+    const votes = await Vote.find({});
+    res.json({ success: true, votes: votes });
 });
 
 router.post('/', (req, res) => {

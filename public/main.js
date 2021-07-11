@@ -1,12 +1,13 @@
 const form = document.getElementById('vote-form');
 
+
 //form submit events
 form.addEventListener('submit', (e) => {
     const choice = document.querySelector('input[name=os]:checked').value;
     const data = { os: choice };
 
 
-    fetch('/', {
+    fetch('http://localhost:3000/poll', {
         method: 'post',
         body: JSON.stringify(data),
         headers: new Headers({
@@ -19,7 +20,7 @@ form.addEventListener('submit', (e) => {
 
     e.preventDefault();
 });
-fetch("/")
+fetch('http://localhost:3000/poll')
     .then(res => res.json())
     .then(data => {
         let votes = data.votes;
@@ -30,10 +31,10 @@ fetch("/")
         );
 
         let dataPoints = [
-            { label: 'Windows', y: voteCounts.Windows },
-            { label: 'MacOs', y: voteCounts.MacOs },
-            { label: 'Linux', y: voteCounts.Linux },
-            { label: 'Other', y: voteCounts.Other }
+            { label: 'Data Structure', y: voteCounts.Windows },
+            { label: 'DBMS', y: voteCounts.MacOs },
+            { label: 'Operating System', y: voteCounts.Linux },
+            { label: 'Computer Networks', y: voteCounts.Other }
         ];
 
         const chartContainer = document.querySelector('#chartContainer');
@@ -79,8 +80,6 @@ fetch("/")
         }
 
     });
-
-
 
 
 
